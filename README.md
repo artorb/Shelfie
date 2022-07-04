@@ -1,7 +1,12 @@
 # Shelfie is an app for tracking your groceries.
 
+- __Backend: REST API with Mediator pattern, JWT authentication.__ 
+- __Frontend: Minimalistic, responsive design.__
 
-## Frontend: React, Typescript, TailwindCSS.
 
+## Technologies
+### Frontend: 
+            React, Typescript, TailwindCSS, AlpineJS, FuseJS, MobX and more.
 
-## Backend: .NET, Entity Framework, PostgreSQL.
+### Backend: 
+           .NET, Entity Framework, PostgreSQL, JWT authentication.
