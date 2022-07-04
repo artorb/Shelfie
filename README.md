@@ -1,6 +1,6 @@
 # Shelfie is an app for tracking your groceries.
 
-- __Backend: REST API with Mediator pattern, JWT authentication.__ 
+- __Backend: REST API with Mediator pattern, JWT authorization.__ 
 - __Frontend: Minimalistic, responsive design.__
 
 
