@@ -1,0 +1,8 @@
+Frontend/.idea
+Frontend/build
+Frontend/node_modules
+
+Backend/.idea
+Backend/Shelfy.sln.DotSettings.user
+Backend/*/bin
+Backend/*/obj
