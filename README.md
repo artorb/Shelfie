@@ -6,7 +6,7 @@
 
 ## Technologies
 ### Frontend: 
-            React, Typescript, TailwindCSS, AlpineJS, FuseJS, MobX and more.
+            React, Typescript, TailwindCSS, FuseJS, MobX and more.
 
 ### Backend: 
            .NET, Entity Framework, PostgreSQL, JWT authentication.
