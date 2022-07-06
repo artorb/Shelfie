@@ -15,6 +15,7 @@
 - jwt authorization, validation
 - fuzzy and weighted search
 - notification if ingredient's expiration day is within 30 days from *today*
+- statistics
 
 
 ### Demonstration
