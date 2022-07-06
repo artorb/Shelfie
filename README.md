@@ -2,11 +2,18 @@
 
 ## Technologies
 ### Frontend: 
-            React, Typescript, TailwindCSS, FuseJS, MobX and more.
+            React 
+            Typescript
+            TailwindCSS
+            FuseJS 
+            MobX and more.
 
 ### Backend: 
-           .NET, ASP.NET Core, Entity Framework, 
-           PostgreSQL, JWT authentication. (REST API with Mediator pattern)
+           .NET 
+           ASP.NET Core
+           Entity Framework
+           PostgreSQL
+           JWT authentication (REST API with Mediator pattern)
 
 ### Features:
 - Neutral, responsive design
