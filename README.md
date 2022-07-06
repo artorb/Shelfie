@@ -2,18 +2,11 @@
 
 ## Technologies
 ### Frontend: 
-            React 
-            Typescript
-            TailwindCSS
-            FuseJS 
-            MobX and more.
+            React, Typescript, TailwindCSS, FuseJS, MobX and more.
 
 ### Backend: 
-           .NET 
-           ASP.NET Core
-           Entity Framework
-           PostgreSQL
-           JWT authentication (REST API with Mediator pattern)
+           .NET, ASP.NET Core, Entity Framework, PostgreSQL,JWT authentication 
+           (REST API with Mediator pattern)
 
 ### Features:
 - Neutral, responsive design
@@ -21,7 +14,7 @@
 - CRUD endpoints for ingredient and storage entities
 - jwt authorization, validation
 - fuzzy and weighted search
-- notification if ingredients expiration day is within 30 days from today
+- notification if ingredient's expiration day is within 30 days from *today*
 
 
 ### Demonstration
