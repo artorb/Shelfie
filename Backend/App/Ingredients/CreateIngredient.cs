@@ -38,24 +38,10 @@ public class CreateIngredient
 
         public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
         {
-            // var storage = await _ctx.Storages.FirstOrDefaultAsync(
-            //     c => c.Id == Guid.Parse(request.IngredientDto.StorageId!), cancellationToken: cancellationToken);
-            // var storage = await _ctx.Storages.AnyAsync(
-            //     storage => storage.Id == Guid.Parse(request.IngredientDto.StorageId!),
-            //     cancellationToken: cancellationToken);
-            // if (!storage)
-            // {
-            //     return Unit.Value;
-            // }
-
-
             var ingredient = _mapper.Map<Ingredient>(request.IngredientDto);
             ingredient.ApplicationUserId = request.UserId;
-            // ingredient.StorageId = Guid.Parse(request.IngredientDto.StorageId!);
-
             /** Workaround for mapping JS Date object to postgres timestampz, of course not suitable for production  */
             // ingredient.ExpirationDate = ingredient.ExpirationDate!.Value.AddHours(5);
-
 
             await _ctx.Ingredients.AddAsync(ingredient, cancellationToken);
             await _ctx.SaveChangesAsync(cancellationToken);

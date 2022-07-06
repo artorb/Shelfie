@@ -40,7 +40,6 @@ public class DetailsIngredient
                 var ingredientDto = new GetIngredientDto();
                 _mapper.Map(ingredient, ingredientDto);
 
-
                 return ingredientDto;
             }
         }

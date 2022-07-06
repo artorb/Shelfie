@@ -11,7 +11,6 @@ namespace API.Extensions;
 
 public static class IdentityServiceExtensions
 {
-    // public static IServiceCollection AddIdentityServices(this IServiceCollection services, IConfiguration config)
     public static IServiceCollection AddIdentityServices(this IServiceCollection services)
     {
         services.AddIdentityCore<ApplicationUser>(opt =>
@@ -24,22 +23,7 @@ public static class IdentityServiceExtensions
             })
             .AddEntityFrameworkStores<ShelfyContext>()
             .AddSignInManager<SignInManager<ApplicationUser>>();
-
-        // services.AddIdentityCore<ApplicationUser>(options =>
-        //         {
-        //             options.SignIn.RequireConfirmedAccount = false;
-        //             options.Password.RequireDigit = false;
-        //             options.Password.RequiredLength = 1;
-        //             options.Password.RequireLowercase = false;
-        //             options.Password.RequireUppercase = false;
-        //             options.Password.RequireNonAlphanumeric = false;
-        //             // options.User.RequireUniqueEmail = false;
-        //         }
-        //     )
-        //     .AddSignInManager<SignInManager<ApplicationUser>>()
-        //     .AddEntityFrameworkStores<ShelfyContext>();
-        // .AddDefaultTokenProviders();
-        // services.AddControllersWithViews();
+            // .AddDefaultTokenProviders();
 
         var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("LengthOf12SecretKey"));
 

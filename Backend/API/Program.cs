@@ -25,7 +25,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-// here
 app.UseStaticFiles();
 
 app.UseRouting();

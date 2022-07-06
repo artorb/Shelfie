@@ -31,26 +31,33 @@ public class StatisticsController : BaseApiController
         var enumerable = storages.ToList();
 
         var list = (from storage in enumerable
-        let amber = storage.Ingredients.Count(ingredient => ingredient.ColorTag!.Equals("amber", StringComparison.InvariantCultureIgnoreCase))
-        let blue = storage.Ingredients.Count(ingredient => ingredient.ColorTag!.Equals("blue", StringComparison.InvariantCultureIgnoreCase))
-        let fuchsia = storage.Ingredients.Count(ingredient => ingredient.ColorTag!.Equals("fuchsia", StringComparison.InvariantCultureIgnoreCase))
-        let green = storage.Ingredients.Count(ingredient => ingredient.ColorTag!.Equals("green", StringComparison.InvariantCultureIgnoreCase))
-        let red = storage.Ingredients.Count(ingredient => ingredient.ColorTag!.Equals("red", StringComparison.InvariantCultureIgnoreCase))
-        let sky = storage.Ingredients.Count(ingredient => ingredient.ColorTag!.Equals("sky", StringComparison.InvariantCultureIgnoreCase))
-        let slate = storage.Ingredients.Count(ingredient => ingredient.ColorTag!.Equals("slate", StringComparison.InvariantCultureIgnoreCase))
-        select new StatisticsDto()
-        {
-            Amber = amber,
-            Blue = blue,
-            Fuchsia = fuchsia,
-            Green = green,
-            Red = red,
-            Sky = sky,
-            Slate = slate,
-            StorageName = storage.Name,
-            StorageId = storage.Id.ToString(),
-            TotalAmount = storage.Ingredients.Count
-        }).ToList();
+            let amber = storage.Ingredients.Count(ingredient =>
+                ingredient.ColorTag!.Equals("amber", StringComparison.InvariantCultureIgnoreCase))
+            let blue = storage.Ingredients.Count(ingredient =>
+                ingredient.ColorTag!.Equals("blue", StringComparison.InvariantCultureIgnoreCase))
+            let fuchsia = storage.Ingredients.Count(ingredient =>
+                ingredient.ColorTag!.Equals("fuchsia", StringComparison.InvariantCultureIgnoreCase))
+            let green = storage.Ingredients.Count(ingredient =>
+                ingredient.ColorTag!.Equals("green", StringComparison.InvariantCultureIgnoreCase))
+            let red = storage.Ingredients.Count(ingredient =>
+                ingredient.ColorTag!.Equals("red", StringComparison.InvariantCultureIgnoreCase))
+            let sky = storage.Ingredients.Count(ingredient =>
+                ingredient.ColorTag!.Equals("sky", StringComparison.InvariantCultureIgnoreCase))
+            let slate = storage.Ingredients.Count(ingredient =>
+                ingredient.ColorTag!.Equals("slate", StringComparison.InvariantCultureIgnoreCase))
+            select new StatisticsDto()
+            {
+                Amber = amber,
+                Blue = blue,
+                Fuchsia = fuchsia,
+                Green = green,
+                Red = red,
+                Sky = sky,
+                Slate = slate,
+                StorageName = storage.Name,
+                StorageId = storage.Id.ToString(),
+                TotalAmount = storage.Ingredients.Count
+            }).ToList();
 
         return Ok(list);
     }

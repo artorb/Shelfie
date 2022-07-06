@@ -25,12 +25,8 @@ public static class AppServiceExtensions
             }).AddNewtonsoftJson()
             .AddXmlDataContractSerializerFormatters();
         
-        // services.AddControllers(opt => opt.ReturnHttpNotAcceptable = true)
-        //     .AddNewtonsoftJson()
-        //     .AddXmlDataContractSerializerFormatters();
         services.AddEndpointsApiExplorer();
         services.AddHttpClient();
-
 
         services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         services.AddScoped<IUnitOfWork, UnitOfWork>();
@@ -38,11 +34,9 @@ public static class AppServiceExtensions
         services.AddCors(opt =>
             opt.AddPolicy("CorsPolicy", policy =>
                 policy.AllowAnyMethod().AllowAnyHeader()
-                    // .WithOrigins("http://localhost:3000")));
                     .AllowAnyOrigin()));
 
         services.AddMediatR(typeof(ListAllIngredients.Handler).Assembly, typeof(ListAllStorages.Handler).Assembly, typeof(ListAllRecipes.Handler).Assembly);
-        // services.AddMediatR(typeof(ListAllStorages.Handler).Assembly);
         services.AddAutoMapper(typeof(MapperProfile).Assembly);
 
         services.AddSwaggerGen();

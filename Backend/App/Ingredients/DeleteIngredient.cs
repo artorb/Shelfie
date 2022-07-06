@@ -32,7 +32,7 @@ public class DeleteIngredient
 
         public async Task<Unit> Handle(Command request, CancellationToken cancellationToken)
         {
-            var ingredient = await _ctx.Ingredients.FindAsync(request.Id);
+            var ingredient = await _ctx.Ingredients.FindAsync(request.Id, cancellationToken);
             _ctx.Remove(ingredient);
 
             await _ctx.SaveChangesAsync(cancellationToken);

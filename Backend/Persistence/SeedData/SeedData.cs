@@ -13,24 +13,13 @@ public class SeedData
         UserManager<ApplicationUser> userManager)
     {
         _context = context;
-        // _userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
         _userManager = userManager;
-        // var ingredients = await InitIngredients();
-        // var users = await InitUsers();
-        //
-        // foreach (var user in users)
-        // {
-        //     await _userManager.CreateAsync(user);
-        // }
-
-        // await _context.Ingredients.AddRangeAsync(ingredients);
 
         await _context.SaveChangesAsync();
     }
 
     private static async Task<IEnumerable<ApplicationUser>> InitUsers()
     {
-        // const string pass = "passw0r!";
         var pass = "123aBc";
         var users = new List<ApplicationUser>();
 
@@ -59,8 +48,7 @@ public class SeedData
             Calories = 300,
             Carbs = 40,
             ColorTag = "amber",
-            // ExpirationDate = DateTime.Parse("21.04.2022"),
-            // ExpirationDate = DateTime.UtcNow.AddDays(60),
+            ExpirationDate = DateTime.UtcNow.AddDays(60),
             Fats = 10,
             Id = Guid.NewGuid(),
             Picture = "",
@@ -73,7 +61,7 @@ public class SeedData
             Calories = 30,
             Carbs = 12,
             ColorTag = "green",
-            // ExpirationDate = DateTime.UtcNow.AddDays(90),
+            ExpirationDate = DateTime.UtcNow.AddDays(90),
             Fats = 2,
             Id = Guid.NewGuid(),
             Picture = "",
@@ -86,7 +74,7 @@ public class SeedData
             Calories = 312,
             Carbs = 50,
             ColorTag = "slate",
-            // ExpirationDate = DateTime.UtcNow.AddDays(120),
+            ExpirationDate = DateTime.UtcNow.AddDays(120),
             Fats = 4,
             Id = Guid.NewGuid(),
             Picture = "",
@@ -99,7 +87,7 @@ public class SeedData
             Calories = 12,
             Carbs = 2,
             ColorTag = "red",
-            // ExpirationDate = DateTime.UtcNow.AddDays(320),
+            ExpirationDate = DateTime.UtcNow.AddDays(320),
             Fats = 3,
             Id = Guid.NewGuid(),
             Picture = "",

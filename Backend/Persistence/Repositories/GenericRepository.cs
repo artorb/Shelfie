@@ -72,7 +72,6 @@ public class GenericRepository<T> : IGenericRepository<T> where T : Entity
 
     public virtual async Task<T> GetAsync(Guid id)
     {
-        // return await table.SingleOrDefaultAsync(p => p.Id == id);
         return await table.FirstOrDefaultAsync(p => p.Id == id);
     }
 

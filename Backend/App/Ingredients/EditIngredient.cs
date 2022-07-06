@@ -1,12 +1,8 @@
 using AutoMapper;
-using Domain.Models;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using Persistence.DTO;
 using Persistence.DTO.Ingredient;
-using Persistence.Mapper;
 
 namespace App.Ingredients;
 

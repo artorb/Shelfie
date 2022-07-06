@@ -12,7 +12,7 @@ namespace Persistence.Mapper
         public MapperProfile()
         {
             // <----------- Ingredient --------------->
-            
+
             CreateMap<Storage, StorageForIngredientDto>()
                 .ForMember(dest => dest.Id, opt
                     => opt.MapFrom(src => src.Id))
@@ -39,14 +39,14 @@ namespace Persistence.Mapper
                     opt.MapFrom(src => src.Picture))
                 .ForMember(dest => dest.StorageId, opt =>
                     opt.MapFrom(src => src.StorageId))
-                // .ForMember(dest => dest.Storage, opt => 
-                //     opt.MapFrom(src => src.Storage))
                 .ForMember(dest => dest.Storage, opt =>
                     opt.MapFrom(src => src.Storage))
                 .ForMember(dest => dest.Created, opt =>
                     opt.MapFrom(src => src.Created))
                 .ForMember(dest => dest.ExpirationDate, opt =>
                     opt.MapFrom(src => src.ExpirationDate))
+                .ForMember(dest => dest.Storage, opt =>
+                    opt.Ignore())
                 .ForMember(dest => dest.StorageId, opt =>
                     opt.MapFrom(src => src.StorageId))
                 .ForMember(dest => dest.AmountUnits, opt =>
@@ -73,25 +73,14 @@ namespace Persistence.Mapper
                     opt.MapFrom(src => src.Type ?? string.Empty))
                 .ForMember(dest => dest.Picture, opt =>
                     opt.MapFrom(src => src.Picture ?? string.Empty))
-                //FIXME
-                // .ForMember(dest => dest.ExpirationDate ?? DateTime.MinValue,
-                // opt =>
-                // opt.MapFrom(src =>
-                // src.ExpirationDate ?? DateTime.MinValue))
                 .ForPath(dest => dest.ExpirationDate,
                     opt =>
                         opt.MapFrom(src =>
                             src.ExpirationDate ?? DateTime.MinValue))
-                // .ForPath(dest => dest.ExpirationDate,
-                //     opt =>
-                //         opt.MapFrom(src =>
-                //             DateTime.ParseExact(src.ExpirationDate.ToString() ?? DateTime.MinValue.ToString(CultureInfo.InvariantCulture), "ddd MMM d HH:mm:ss \"UTC\"zzz yyyy", CultureInfo.CurrentCulture)))
-                // F
                 .ForMember(dest => dest.Storage, opt =>
                     opt.Ignore())
-                .ForPath(dest => dest.Storage!.Id, opt =>
-                    // opt.MapFrom(src => Guid.Parse(src.StorageId!)))
-                    opt.Ignore())
+                .ForMember(dest => dest.StorageId, opt =>
+                    opt.MapFrom(src => src.StorageId))
                 .ForMember(dest => dest.AmountUnits, opt =>
                     opt.MapFrom(src => src.AmountUnits ?? Convert.ToInt32(0)))
                 .ForMember(dest => dest.ColorTag, opt =>
@@ -116,12 +105,10 @@ namespace Persistence.Mapper
                     opt.MapFrom(src => src.Picture))
                 .ForMember(dest => dest.ExpirationDate, opt =>
                     opt.MapFrom(src => src.ExpirationDate))
-                // .ForPath(dest => dest.ExpirationDate, opt =>
-                //     opt.MapFrom(src => src.ExpirationDate))
                 .ForMember(dest => dest.Storage, opt =>
                     opt.Ignore())
-                .ForPath(dest => dest.Storage.Id, opt =>
-                    opt.MapFrom(src => Guid.Parse(src.StorageId)))
+                .ForPath(dest => dest.Storage!.Id, opt =>
+                    opt.MapFrom(src => Guid.Parse(src.StorageId!)))
                 .ForMember(dest => dest.AmountUnits, opt =>
                     opt.MapFrom(src => src.AmountUnits))
                 .ForMember(dest => dest.ColorTag, opt =>

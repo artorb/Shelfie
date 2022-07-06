@@ -2,7 +2,7 @@ using Domain.Repositories;
 
 namespace Persistence.Repositories;
 
-public class UnitOfWork : IUnitOfWork 
+public class UnitOfWork : IUnitOfWork
 {
     private readonly ShelfyContext db;
 

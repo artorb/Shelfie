@@ -37,35 +37,12 @@ namespace API.Controllers
                 return NotFound();
             }
         }
-        // [HttpGet("{id:guid}")]
-        // [ProducesResponseType((int)HttpStatusCode.NotFound)]
-        // [ProducesResponseType(typeof(Storage), (int)HttpStatusCode.OK)]
-        // public async Task<ActionResult<Storage>> GetStorage(Guid id, CancellationToken ct)
-        // {
-        //     try
-        //     {
-        //         var storage = await Mediator.Send(new DetailsStorage.Query(id: id), ct);
-        //         return Ok(storage);
-        //     }
-        //     catch
-        //     {
-        //         return NotFound();
-        //     }
-        // }
-
 
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> EditStorage(Guid id, [FromBody] PutStorageDto storageDto)
         {
-            // OK
             return Ok(await Mediator.Send(new EditStorage.Command(storageDto, id)));
         }
-        // [HttpPut("{id:guid}")]
-        // public async Task<IActionResult> EditStorage(Guid id, [FromBody] PutIngredientDto ingredientDto)
-        // {
-        //     // OK
-        //     return Ok(await Mediator.Send(new EditStorage.Command(ingredientDto, id)));
-        // }
 
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.NotFound)]
@@ -88,7 +65,6 @@ namespace API.Controllers
         [HttpDelete("{id:guid}")]
         public async Task<IActionResult> DeleteStorage(Guid id, CancellationToken ct)
         {
-            // OK
             return Ok(await Mediator.Send(new DeleteStorage.Command(id: id), ct));
         }
     }

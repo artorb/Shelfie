@@ -9,9 +9,6 @@ public abstract class Entity
     [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public Guid Id { get; set; }
 
-    // [DataType(DataType.DateTime)]
-    // [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = false)]
-    // public DateTime Created { get; set; } = DateTime.Now;
     [DataType(DataType.Date)]
     [DisplayFormat(DataFormatString = "{0:yyyy/MM/dd}", ApplyFormatInEditMode = true)]
     public DateTime Created { get; set; } = DateTime.Now;

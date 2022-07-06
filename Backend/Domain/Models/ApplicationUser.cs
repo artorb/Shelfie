@@ -1,6 +1,5 @@
 using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNetCore.Identity;
-using Microsoft.AspNetCore.Mvc.Rendering;
 
 namespace Domain.Models;
 
@@ -12,7 +11,6 @@ public class ApplicationUser : IdentityUser
     [RegularExpression("[-a-zA-Z]+", ErrorMessage = "Invalid name!")]
     public string Name { get; set; }
 
-    // public Household Household { get; set; }
     public ICollection<Ingredient> Ingredients { get; set; }
     public ICollection<Storage> Storages { get; set; }
     public ICollection<Recipe> Meals { get; set; }

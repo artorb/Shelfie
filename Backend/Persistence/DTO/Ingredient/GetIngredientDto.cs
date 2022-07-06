@@ -34,8 +34,6 @@ namespace Persistence.DTO.Ingredient
         public string? ColorTag { get; set; }
 
         public string StorageId { get; set; }
-
-        // public Domain.Models.Storage Storage { get; set; }
         public StorageForIngredientDto Storage { get; set; }
         public bool Expired => ExpirationDate > DateTime.Now;
     }

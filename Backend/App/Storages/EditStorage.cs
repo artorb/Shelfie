@@ -1,11 +1,7 @@
 using AutoMapper;
-using Domain.Models;
 using MediatR;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Persistence;
-using Persistence.DTO;
-using Persistence.DTO.Ingredient;
 using Persistence.DTO.Storage;
 
 namespace App.Storages;
@@ -44,8 +40,6 @@ public class EditStorage
         {
             try
             {
-                // var ingredient = await _ctx.Ingredients.SingleOrDefaultAsync(ing => ing.Id == request.Ingredient.Id,
-                //     cancellationToken: cancellationToken);
                 var storage = await _ctx.Storages.SingleOrDefaultAsync(ing => ing.Id == request.DtoId,
                     cancellationToken: cancellationToken);
 

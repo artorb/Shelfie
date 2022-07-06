@@ -35,7 +35,6 @@ public class ShelfyContext : IdentityDbContext<ApplicationUser>
         builder.Entity<Ingredient>()
             .HasOne<Storage>(i => i.Storage)
             .WithMany(c => c.Ingredients);
-            // .HasForeignKey(aa => aa);
 
         builder.Entity<Ingredient>()
             .HasMany(i => i.Recipes)

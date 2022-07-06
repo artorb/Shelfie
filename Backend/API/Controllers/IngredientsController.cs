@@ -8,12 +8,12 @@ using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Persistence.DTO;
 using Persistence.DTO.Ingredient;
+
 // ReSharper disable HeapView.BoxingAllocation
 
 namespace API.Controllers
 {
     [Authorize]
-    // [AllowAnonymous]
     [EnableCors("CorsPolicy")]
     [ApiController]
     [Route("api/[controller]")]
@@ -35,7 +35,6 @@ namespace API.Controllers
         [ProducesErrorResponseType(typeof(StatusResponseDto))]
         public async Task<ActionResult<GetIngredientDto>> GetIngredient(Guid id, CancellationToken ct)
         {
-            // OK
             try
             {
                 var ingredient = await Mediator.Send(new DetailsIngredient.Query(dtoId: id), ct);
@@ -51,11 +50,6 @@ namespace API.Controllers
         [HttpPut("{id:guid}")]
         public async Task<IActionResult> EditIngredient(Guid id, [FromBody] PutIngredientDto ingredientDto)
         {
-            var now = DateTime.UtcNow;
-
-            var x = new DateOnly();
-            var y = new DateOnly();
-            
             return Ok(await Mediator.Send(new EditIngredient.Command(ingredientDto, id)));
         }
 
@@ -65,7 +59,8 @@ namespace API.Controllers
         [ProducesErrorResponseType(typeof(StatusResponseDto))]
         public async Task<ActionResult<List<GetIngredientDto>>> GetAllIngredients(CancellationToken ct)
         {
-            return Ok(await Mediator.Send(new ListAllIngredients.Query(), ct));
+            var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value!;
+            return Ok(await Mediator.Send(new ListAllIngredients.Query(userId), ct));
         }
 
         [HttpPost]
@@ -77,8 +72,7 @@ namespace API.Controllers
             {
                 var userId = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
                 var response = await Mediator.Send(new CreateIngredient.Command(ingredient, userId), ct);
-                // return Ok(response);
-                return StatusCode((int) HttpStatusCode.Created, value: response);
+                return StatusCode((int)HttpStatusCode.Created, value: response);
             }
             catch (Exception ex)
             {

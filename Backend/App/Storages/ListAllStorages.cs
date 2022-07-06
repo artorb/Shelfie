@@ -28,22 +28,13 @@ public class ListAllStorages
 
         public async Task<List<GetStorageDto>> Handle(Query request, CancellationToken cancellationToken)
         {
-            // var storages = await _ctx.Storages
-            //     .Where(str => str.ApplicationUserId == request.ApplicationUserId)
-            //     .OrderByDescending(x => x.Created)
-            //     .ProjectTo<GetStorageDto>(_mapper.ConfigurationProvider)
-            //     .ToListAsync(cancellationToken: cancellationToken);
-
             var storages = await _ctx.Storages
+                .Where(storage => storage.ApplicationUserId == request.ApplicationUserId)
                 .OrderByDescending(x => x.Created)
                 .ProjectTo<GetStorageDto>(_mapper.ConfigurationProvider)
                 .ToListAsync(cancellationToken: cancellationToken);
 
             return storages;
-
-            // var storages = await _ctx.Storages.ToListAsync(cancellationToken: cancellationToken);
-            //
-            // return storages.Select(storage => _mapper.Map<GetStorageDto>(storage)).ToList();
         }
     }
 }
