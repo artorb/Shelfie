@@ -26,7 +26,6 @@ export default observer(function ModalContainer() {
         <>
             <Transition.Root appear show={modalStore.modal.open} as={Fragment}>
                 <Dialog as="div" className="relative z-40" open={modalStore.modal.open} onClose={closeModal}>
-                    {/*<Dialog as="div" className="relative z-40" onClose={() => console.log('CLIEKR')}>*/}
                     <Transition.Child
                         as={Fragment}
                         enter="ease-out duration-300"

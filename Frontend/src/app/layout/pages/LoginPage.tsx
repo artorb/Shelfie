@@ -32,10 +32,6 @@ export default observer(function LoginPage() {
         password: Yup.string().required().min(6).max(15)
     })
 
-    // if (userStore.isLoggedIn) {
-    //     browserHistory.push('/dashboard');
-    // }
-
     return (
         <>
             <div className="min-h-screen dark:bg-slate-900 bg-opacity-80 flex flex-row  justify-center">
@@ -107,7 +103,6 @@ export default observer(function LoginPage() {
                                                         type="submit"
                                                         className="w-full flex justify-center py-2 px-4 border border-transparent text-sm mt-2 font-medium rounded-md text-white dark:text-indigo-200 bg-[#354F52] hover:bg-teal-700 dark:bg-indigo-600 dark:active:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-emerald-400 dark:focus:ring-indigo-500"
                                                     >
-                                                        {/*{isSubmitting ? <LoadingComponent/> : ''} Login*/}
                                                         {isSubmitting ? <SpinnerIcon/> : 'Login'}
                                                     </button>
                                                 </Form>

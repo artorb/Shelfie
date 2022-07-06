@@ -2,7 +2,6 @@ import {ErrorMessage, Field, Form, Formik} from "formik";
 import {observer} from "mobx-react-lite";
 import {useStore} from "../../stores/store";
 import * as Yup from 'yup';
-import {useRef} from "react";
 
 export default observer(function RegisterForm() {
     const {userStore} = useStore();

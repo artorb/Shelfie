@@ -1,5 +1,4 @@
 import Dashboard from "../dashboard/Dashboard";
-import AddNewSection from "../dashboard/AddNewSection";
 import {useStore} from "../../stores/store";
 import IngredientForm from "../ingredient/IngredientForm";
 import {useEffect, useState} from "react";
@@ -8,6 +7,7 @@ import {observer} from "mobx-react-lite";
 import LoadingComponent from "../LoadingComponent";
 import Colortag from "../dashboard/Colortag";
 import {IIngredient} from "../../models/ingredient";
+import {PlusIcon} from "@heroicons/react/outline";
 
 export default observer(function DashboardPage() {
     const {ingredientStore} = useStore();
@@ -19,7 +19,6 @@ export default observer(function DashboardPage() {
         ingredientRegistry,
         loadingInit
     } = ingredientStore;
-    // const [ingredients, setIngredients] = useState<IIngredient[]>(filterByName(''));
     const [ingredients, setIngredients] = useState<IIngredient[]>([]);
 
     const [query, setQuery] = useState('');
@@ -91,7 +90,6 @@ export default observer(function DashboardPage() {
             }));
             setIngredients(arr);
         }
-        // setIngredients(filterByName(text))
     }
 
     if (loadingInit) return <LoadingComponent/>
@@ -103,7 +101,16 @@ export default observer(function DashboardPage() {
                     className="container -mt-0 mx-auto justify-center p-4 flex relative flex-wrap items-center">
                     <div
                         className={`dark:bg-blue-900/10 bg-white/50 shadow dark:shadow-none max-w-3xl p-4 my-4 mx-1 rounded w-full items-center flex flex-col`}>
-                        <AddNewSection/>
+                        {/*<AddNewSection/>*/}
+                        <div className={`w-full relative flex justify-between items-center`}>
+                            <label className={`text-gray-700 dark:text-indigo-400/90 text-xl font-extrabold`}>Add
+                                New</label>
+                            {/*<button className={`btn-primary absolute w-18 sm:w-32 flex-initial right-0`}>Add</button>*/}
+                            <button
+                                className={`btn-primary absolute px-2 flex justify-center items-center w-12 sm:w-24 sm:h-10 flex-initial right-0`}>
+                                <PlusIcon className={`w-6 h-6`}/>
+                            </button>
+                        </div>
                         <label htmlFor={'search-bar'} hidden={true}></label>
                         <input type={'text'}
                                id={'search-bar'}
@@ -131,7 +138,7 @@ export default observer(function DashboardPage() {
                         </div>
                     </div>
                     {/*{!loadingInit ? <Dashboard isLoading={false} modal={<IngredientForm/>} ingredients={ingredients}/> : <LoadingComponent/>}*/}
-                        <Dashboard isLoading={loadingInit} modal={<IngredientForm/>} ingredients={ingredients}/>
+                    <Dashboard modal={<IngredientForm/>} ingredients={ingredients}/>
                 </div>
             </div>
         </>

@@ -1,6 +1,5 @@
 import {makeAutoObservable} from "mobx"
 import {MutableRefObject} from "react";
-import {store} from "./store";
 
 interface Modal {
     open: boolean;

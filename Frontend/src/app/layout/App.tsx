@@ -43,45 +43,11 @@ function App() {
         setDarkmode(darkStatus);
     }, [darkStatus])
 
-    // useEffect(() => {
-    //     if (logged) {
-    //         const ingredients = async () => {
-    //             await loadIngredients();
-    //         }
-    //         ingredients().catch(er => {
-    //             throw new Error(er)
-    //         });
-    //
-    //         const storages = async () => {
-    //             await loadStorages();
-    //         }
-    //         storages().catch(er => {
-    //             throw new Error(er);
-    //         })
-    //
-    //         const statistics = async () => {
-    //             await loadStatistics();
-    //         }
-    //
-    //         statistics().catch(er => {
-    //             throw new Error(er);
-    //         })
-    //     }
-    //
-    //     const delay = async () => {
-    //         await modalStore.sleep(500)
-    //     };
-    //
-    //     delay().catch(er => console.log(er));
-    //
-    //     // }, [commonStore, darkStatus, loadIngredients, loadStatistics, loadStorages, userStore])
-    // }, [isLoggedIn])
-
     return (
         <>
             <div className={`${darkmode ? 'dark' : 'light'}`}>
                 <div
-                    className={`min-h-full min-w-full bg-cover bg-[url('assets/wave-h.svg')] dark:bg-cover: dark:bg-[url('assets/wave-d.svg')]  dark:bg-[#100f35]`}>
+                    className="min-h-full bg-cover bg-[url('assets/wave-h.svg')] dark:bg-cover dark:bg-[url('assets/wave-d.svg')]">
                     <Header/>
 
                     <Routes>

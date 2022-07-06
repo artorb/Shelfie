@@ -20,7 +20,6 @@ export default class StorageStore {
     }
 
     filterByName = (text: string) => {
-        // return Array.from(this.storageRegistry.values()).filter(storage => storage.name.includes(text));
         return Array.from(this.storageRegistry.values()).filter(storage => storage.name.indexOf(text) > -1);
     }
 

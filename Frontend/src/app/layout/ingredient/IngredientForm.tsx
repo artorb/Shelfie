@@ -83,15 +83,10 @@ export default observer(function IngredientForm() {
                             proteins: ingredient?.proteins ?? 0,
                             weight: ingredient?.weight ?? 0,
                             calories: ingredient?.calories ?? 0,
-                            // expirationDate: new Date('1994/03/13').toISOString().slice(0,10),
-                            // expirationDate: (ingredient?.expirationDate) ? new Date(ingredient?.expirationDate).toISOString().slice(0, 10) : '',
                             expirationDate: (ingredient?.expirationDate) ? new Date(ingredient?.expirationDate).toISOString().slice(0, 10) : format(new Date(), 'yyyy-MM-dd'),
                             type: ingredient?.type ?? '',
                             error: null
                         }}
-                        // onSubmit={(values, {setErrors}) =>
-                        //     handleSubmitButton(values).catch((error) => setErrors({error: 'Error processing the ingredient'}))
-                        // }
                         onSubmit={async (values, {setErrors}) => {
                             await modalStore.sleep(500);
                             handleSubmitButton(values).catch((error) => {
@@ -196,7 +191,6 @@ export default observer(function IngredientForm() {
                                     className={`${error == null ? 'hidden' : 'visible'} text-xs py-2 px-1 font-thin text-red-600`}>{error}</p>}></ErrorMessage>
                                 <label className={`text-sm mb-1`}>Expiration date</label>
                                 <Field
-                                    // type={`date`}
                                     type={`date`}
                                     name={`expirationDate`}
                                     className="w-full bg-white dark:bg-slate-800 rounded border dark:border-slate-700 border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-400 dark:focus:ring-indigo-900 text-base outline-none dark:text-gray-400 text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
@@ -205,15 +199,6 @@ export default observer(function IngredientForm() {
                                     className={`${error == null ? 'hidden' : 'visible'} text-xs py-2 px-1 font-thin text-red-600`}>{error}</p>}></ErrorMessage>
 
                                 <label className={`text-sm mb-1`}>Storage</label>
-                                {/*<Field*/}
-                                {/*    component={`select`}*/}
-                                {/*    name={`storageId`}*/}
-                                {/*    placeholder={ingredient.storage.name}*/}
-                                {/*    className="w-full bg-white dark:bg-slate-800 rounded border dark:border-slate-700 border-gray-300 focus:border-teal-500 focus:ring-2 focus:ring-teal-400 dark:focus:ring-indigo-900 text-base outline-none dark:text-gray-400 text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">*/}
-                                {/*    <option>{ingredient.storage.name}</option>*/}
-                                {/*    <option>Huiu</option>*/}
-
-                                {/*</Field>*/}
                                 <Field
                                     component={StorageListBox}
                                     name={`storageId`}

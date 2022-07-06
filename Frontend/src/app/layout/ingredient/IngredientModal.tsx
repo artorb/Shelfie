@@ -1,7 +1,6 @@
 import {Dialog, Transition} from "@headlessui/react";
 import {observer} from "mobx-react-lite";
-import {ChangeEvent} from "react";
-import {Fragment, useState} from 'react'
+import {ChangeEvent, Fragment, useState} from "react";
 import {IIngredient} from "../../models/ingredient";
 import {useStore} from "../../stores/store";
 
@@ -96,7 +95,7 @@ export default observer(function IngredientModal() {
                                         as="h2"
                                         className="text-lg font-semibold capitalize leading-6 text-sky-500 dark:text-indigo-200"
                                     >
-                                        Create INNGRR(modal)
+                                        Create Ingredient
                                     </Dialog.Title>
                                     <button
                                         type="button"
@@ -137,8 +136,6 @@ export default observer(function IngredientModal() {
                                         </button>
                                     </form>
                                 </div>
-
-
                             </div>
                         </Transition.Child>
                     </div>

@@ -4,9 +4,9 @@ import ReactDOM from 'react-dom';
 import App from './app/layout/App';
 import './index.css'
 import reportWebVitals from './reportWebVitals';
-import { store, StoreContext } from './app/stores/store';
+import {store, StoreContext} from './app/stores/store';
 // import { BrowserRouter } from 'react-router-dom';
-import { unstable_HistoryRouter as HistoryRouter } from 'react-router-dom';
+import {unstable_HistoryRouter as HistoryRouter} from 'react-router-dom';
 // import { createBrowserHistory } from 'history';
 import history from './browserHistory';
 
@@ -16,12 +16,12 @@ Alpine.start();
 
 ReactDOM.render(
     <HistoryRouter history={history}>
-    <StoreContext.Provider value={store}>
-    <App/>
-    </StoreContext.Provider>
+        <StoreContext.Provider value={store}>
+            <App/>
+        </StoreContext.Provider>
     </HistoryRouter>
     ,
-  document.getElementById('root')
+    document.getElementById('root')
 );
 
 // If you want to start measuring performance in your app, pass a function

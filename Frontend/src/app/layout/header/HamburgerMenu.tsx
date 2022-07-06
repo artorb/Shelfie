@@ -19,7 +19,7 @@ const HamburgerMenu = () => {
                         <Menu.Button
                             aria-label={`user-menu`}
                             className="inline-flex justify-center
-                    rounded-full outline-2 px-1.5 py-1.5 text-sm font-medium text-white bg-gray-200 bg-opacity-20
+                    rounded-full outline-2 px-0.5 py-0.5 text-sm font-medium text-white bg-gray-200 bg-opacity-20
                     focus:outline-none focus-visible:ring-2 focus-visible:ring-white focus-visible:ring-opacity-75"
                         >
                             <svg

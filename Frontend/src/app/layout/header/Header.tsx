@@ -18,15 +18,12 @@ export default function Header() {
                         <div className="container px-8 pt-6 sm:py-6 mx-auto">
                             <div className="xs:flex xs:flex-wrap xs:items-center xs:justify-between">
                                 <div className="flex items-center justify-between w-full">
-                                    <Link to={'/'} className={`mb-2 flex group font-chakra font-semibold text-4xl sm:text-5xl text-gray-100 dark:text-gray-300 hover:text-white hover: hover:duration-500 dark:hover:text-gray-100`}>
+                                    <Link to={'/'}
+                                          className={`mb-2 flex group font-chakra font-semibold text-4xl sm:text-5xl text-gray-100 dark:text-gray-300 hover:text-white hover: hover:duration-500 dark:hover:text-gray-100`}>
                                         <img src={logo} alt="logo"
                                              className="inline-block group-hover:opacity-100 dark:invert opacity-80 transition-opacity duration-300 align-baseline h-10 w-10 mr-2"></img>
                                         Hylla
                                     </Link>
-
-                                    {/*<div className="flex justify-end w-full max-w-sm mb-2 md:hidden">*/}
-                                    {/*    <HamburgerMenu/>*/}
-                                    {/*</div>*/}
 
                                     <div
                                         className="flex-1 sm:hidden md:flex md:items-center justify-end lg:justify-end ">

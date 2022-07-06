@@ -1,7 +1,6 @@
 import {IIngredient} from "../../models/ingredient";
 import {useEffect, useState} from "react";
 import {useStore} from "../../stores/store";
-import CreateButton from "./CreateButton";
 
 interface Props {
     ingredients: IIngredient[],

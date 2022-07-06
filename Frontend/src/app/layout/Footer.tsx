@@ -2,13 +2,13 @@ export default function Footer() {
     return (
         <>
             <footer
-            className="flex flex-col flex-shrink-0 text-center bg-[#2F3E46] dark:bg-[#111827] bottom-0 inset-x-0">
+                className="flex flex-col flex-shrink-0 text-center bg-[#2F3E46] dark:bg-[#111827] bottom-0 inset-x-0">
                 <div className="max-w-screen-xl px-4 py-12 mx-auto sm:px-6 lg:px-8">
                     <div className="max-w-3xl mx-auto space-y-6">
                         <div className="flex justify-center space-x-6">
                             <a
                                 className="text-[#84A98C] dark:text-indigo-200 text-opacity-80 hover:text-opacity-100"
-                                href="/github"
+                                href="/github.com/artorb"
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 aria-label="GitHub"
@@ -43,37 +43,39 @@ export default function Footer() {
                         </div>
 
                         <div className="">
-                        <nav
-                            className="flex flex-wrap justify-center gap-8 p-4 text-sm border-2 border-[#CAD2C5]/[0.1] dark:border-gray-800/30 rounded-xl">
-                            <a
-                                className="hover:opacity-100 opacity-80 text-[#CAD2C5] dark:text-indigo-200"
-                                href="mailto:arty@gmail.com FIXME"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <svg className="w-6 h-6 inline-block mr-2 align-center" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                                </svg>
-                                Email
-                            </a>
+                            <nav
+                                className="flex flex-wrap justify-center gap-8 p-4 text-sm border-2 border-[#CAD2C5]/[0.1] dark:border-gray-800/30 rounded-xl">
+                                <a
+                                    className="hover:opacity-100 opacity-80 text-[#CAD2C5] dark:text-indigo-200"
+                                    href="mailto:arty@gmail.com FIXME"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <svg className="w-6 h-6 inline-block mr-2 align-center" fill="none"
+                                         stroke="currentColor" viewBox="0 0 24 24"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                              d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                                    </svg>
+                                    Email
+                                </a>
 
-                            <a
-                                className="hover:opacity-100 opacity-80 text-[#CAD2C5] dark:text-indigo-200"
-                                href="https://github.com/artorb"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                            >
-                                <svg className="w-6 h-6 inline-block mr-2 align-center" fill="none" stroke="currentColor"
-                                     viewBox="0 0 24 24"
-                                     xmlns="http://www.w3.org/2000/svg">
-                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
-                                          d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-                                </svg>
-                                Repository
-                            </a>
-                        </nav>
+                                <a
+                                    className="hover:opacity-100 opacity-80 text-[#CAD2C5] dark:text-indigo-200"
+                                    href="https://github.com/artorb"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <svg className="w-6 h-6 inline-block mr-2 align-center" fill="none"
+                                         stroke="currentColor"
+                                         viewBox="0 0 24 24"
+                                         xmlns="http://www.w3.org/2000/svg">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2}
+                                              d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+                                    </svg>
+                                    Repository
+                                </a>
+                            </nav>
                         </div>
 
                         <p className="max-w-lg mx-auto text-xs text-[#84A98C] dark:text-indigo-200">

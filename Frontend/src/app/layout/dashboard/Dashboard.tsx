@@ -2,13 +2,10 @@ import {observer} from "mobx-react-lite";
 import {IIngredient} from "../../models/ingredient";
 import {useStore} from "../../stores/store";
 import ModalContainer from "../modals/ModalContainer";
-import LoadingComponent from "../LoadingComponent";
 import {IStorage} from "../../models/storage";
 import {formatDistanceToNow} from "date-fns";
-import {useEffect, useState} from "react";
 import {Disclosure} from "@headlessui/react";
 import {ChevronUpIcon} from "@heroicons/react/solid";
-import {ListGroup} from "react-bootstrap";
 
 export const colorizeTag = (color: string) => {
     switch (color) {
@@ -30,14 +27,12 @@ export const colorizeTag = (color: string) => {
 };
 
 interface Props {
-    isLoading: boolean;
     storages?: IStorage[];
     ingredients?: IIngredient[];
     modal: JSX.Element;
 }
 
 export default observer(function Dashboard({
-                                               isLoading,
                                                ingredients,
                                                storages,
                                                modal,
@@ -65,27 +60,21 @@ export default observer(function Dashboard({
                 : `Expires in ${distance}`;
         };
 
-        if (isLoading)
-            return (
-                <>
-                    <LoadingComponent/>
-                </>
-            );
         if (storages) {
             return (
                 <>
-                    <div className="w-full container max-w-3xl mx-4 pt-16">
+                    <div className="w-full container grid grid-cols-4 mx-4">
                         <ModalContainer/>
                         <div
-                            className="mx-auto w-full max-w-3xl mb-10 rounded-2xl backdrop-blur backdrop-filter bg-gray-300/60 dark:bg-primary_dark-100 dark:bg-opacity-50 p-2">
+                            className="mx-auto w-full rounded-2xl col-span-4 col-start-1 xl:col-span-2 xl:col-start-2 backdrop-blur backdrop-filter bg-gray-300/60 dark:bg-primary_dark-100 dark:bg-opacity-50 p-2">
                             {storages.map((storage) => {
                                 return (
                                     <Disclosure key={storage.id}>
                                         {({open}) => (
                                             <>
                                                 <Disclosure.Button
-                                                    className="flex w-full my-2 justify-between rounded-2xl bg-primary-100 dark:bg-primary_dark-200/50 px-4 py-4 text-left text-md font-dosis text-gray-100 dark:text-gray-400 hover:bg-primary-200 dark:hover:bg-primary_dark-200 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 focus-visible:ring-opacity-75">
-                                                    <span>{storage?.name}</span>
+                                                    className="flex w-full items-center col-span-2 my-2 justify-between rounded-2xl bg-primary-100 dark:bg-primary_dark-200/50 px-8 py-2 md:py-4 text-left text-md font-dosis text-gray-100 dark:text-gray-400 hover:bg-primary-200 dark:hover:bg-primary_dark-200 focus:outline-none focus-visible:ring focus-visible:ring-primary-300 focus-visible:ring-opacity-75">
+                                                    <span className={`text-sm sm:text-lg`}>{storage?.name}</span>
                                                     <ChevronUpIcon
                                                         className={`${
                                                             open ? "rotate-180 transform duration-300" : ""
@@ -101,7 +90,7 @@ export default observer(function Dashboard({
                                                                     key={ingredient.id}
                                                                     className={`space-y-2 flex items-center justify-center text-center w-full`}>
                                                                     <p key={ingredient.id}
-                                                                       className="py-3 text-primary-300 dark:text-gray-400 font-extrabold border-b-2 border-gray-500/40 dark:border-primary_dark-100/40 w-full text-lg">{ingredient.name}</p>
+                                                                       className="py-3 text-[#1a1110] font-dosis dark:text-gray-400 border-b-2 border-gray-500/40 dark:border-primary_dark-100/40 w-full text-xs sm:text-md lg:text-lg">{ingredient.name}</p>
                                                                 </div>
                                                             )
                                                         })}
@@ -143,7 +132,7 @@ export default observer(function Dashboard({
                                         <div
                                             className={`${colorizeTag(
                                                 ingredient.colorTag
-                                            )} inline-block rounded-full my-4 mx-4 px-3 py-3 mt-6 mr-4 sm:mr-12`}
+                                            )} inline-block rounded-full my-4 mx-4 px-2 py-1 mt-6 mr-4 sm:mr-12`}
                                         ></div>
                                     </div>
                                     <div className="w-full flex flex-nowrap justify-between h-1/2">

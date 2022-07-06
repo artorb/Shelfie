@@ -6,7 +6,8 @@ import {observer} from "mobx-react-lite";
 
 export default observer(function Statistics() {
     const {statisticStore} = useStore();
-    const {statisticsArray, loadStatistics, statisticRegistry, loadingInit} = statisticStore;
+    const {statisticsArray, loadStatistics, statisticRegistry, loadingInit} =
+        statisticStore;
 
     const [statistics, setStatistics] = useState<IStatistic[]>([]);
 
@@ -14,197 +15,100 @@ export default observer(function Statistics() {
         if (statisticRegistry.size <= 1) {
             const statisticArray = async () => {
                 await loadStatistics();
-            }
+            };
 
-            statisticArray().catch(er => {
-                throw new Error(er)
+            statisticArray().catch((er) => {
+                throw new Error(er);
             });
         }
         setStatistics(statisticsArray);
-    }, [loadStatistics, statisticRegistry.size, statisticsArray])
+    }, [loadStatistics, statisticRegistry.size, statisticsArray]);
 
-    if (loadingInit) return <LoadingComponent/>
+    if (loadingInit) return <LoadingComponent/>;
 
     return (
         <>
-            <div className="min-h-screen flex flex-row items-center justify-center py-2 px-2 sm:px-6 lg:px-8">
-                <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-                    <table
-                        className="w-full text-sm table-auto font-semibold max-w-screen-2xl text-left text-gray-500 dark:text-gray-400">
-                        <thead
-                            className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-                        <tr>
-                            <th scope="col" className="px-12 py-8">
-                                Storage
-                            </th>
-                            <th scope="col" className="px-6 py-8">
-                                Total amount
-                            </th>
-                            <th scope="col" className="px-6 py-8">
-                                Red
-                            </th>
-                            <th scope="col" className="px-6 py-8">
-                                Fuchsia
-                            </th>
-                            <th scope="col" className="px-6 py-8">
-                                Blue
-                            </th>
-                            <th scope="col" className="px-6 py-8">
-                                Sky
-                            </th>
-                            <th scope="col" className="px-6 py-8">
-                                Green
-                            </th>
-                            <th scope="col" className="px-6 py-8">
-                                Amber
-                            </th>
-                            <th scope="col" className="px-6 py-8">
-                                Slate
-                            </th>
-                        </tr>
-                        </thead>
-                        <tbody>
-                        {statistics.map(({
-                                             amber,
-                                             blue,
-                                             fuchsia,
-                                             green,
-                                             red,
-                                             sky,
-                                             slate,
-                                             storageName,
-                                             totalAmount,
-                                             storageId
-                                         }) => {
-                            return (
-                                <tr key={storageId}
-                                    className="bg-white dark:bg-primary_dark-100 border-b dark:bg-gray-800/90 dark:border-gray-700">
-                                    <th scope="row"
-                                        className="px-6 py-6 font-semibold text-gray-900 dark:text-gray-300 whitespace-nowrap">
-                                        {storageName}
-                                    </th>
-                                    <td className="px-6 py-6 text-center">
-                                        {totalAmount}
-                                    </td>
-                                    <td className="px-6 py-6 text-center">
-                                        {red}
-                                    </td>
-                                    <td className="px-6 py-6 text-center">
-                                        {fuchsia}
-                                    </td>
-                                    <td className="px-6 py-6 text-center">
-                                        {blue}
-                                    </td>
-                                    <td className="px-6 py-6 text-center">
-                                        {sky}
-                                    </td>
-                                    <td className="px-6 py-6 text-center">
-                                        {green}
-                                    </td>
-                                    <td className="px-6 py-6 text-center">
-                                        {amber}
-                                    </td>
-                                    <td className="px-6 py-6 text-center">
-                                        {slate}
-                                    </td>
-                                </tr>
-                            )
-                        })}
-                        </tbody>
-                    </table>
+            <div
+                className="min-h-screen flex flex-row items-start mt-20 sm:mt-0 sm:items-center justify-center py-2 px-2 sm:px-6 lg:px-8">
+                <div className="grid grid-cols-4 w-full">
+                    <div
+                        className="relative col-start-1 col-span-4 2xl:col-start-2 2xl:col-span-2 overflow-x-auto shadow-md rounded-lg">
+                        <table
+                            className="text-sm w-full table-auto font-semibold text-left text-gray-500 dark:text-gray-400">
+                            <thead
+                                className="text-xxs sm:text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+                            <tr>
+                                <th scope="col" className="text-center py-2 sm:py-8">
+                                    Storage
+                                </th>
+                                <th scope="col" className="py-2 sm:py-8 text-center">
+                                    Amount
+                                </th>
+                                <th scope="col" className="py-2 sm:py-8 text-red-400 text-center">
+                                    Red
+                                </th>
+                                <th scope="col" className="py-2 sm:py-8 text-fuchsia-400 text-center">
+                                    Fuchsia
+                                </th>
+                                <th scope="col" className="py-2 sm:py-8 text-blue-400 text-center">
+                                    Blue
+                                </th>
+                                <th scope="col" className="py-2 sm:py-8 text-sky-400 text-center">
+                                    Sky
+                                </th>
+                                <th scope="col" className="py-2 sm:py-8 text-green-400 text-center">
+                                    Green
+                                </th>
+                                <th scope="col" className="py-2 sm:py-8 text-amber-400 text-center">
+                                    Amber
+                                </th>
+                                <th scope="col" className="py-2 sm:py-8 text-slate-400 text-center">
+                                    Slate
+                                </th>
+                            </tr>
+                            </thead>
+                            <tbody className={`divide-y divide-gray-200 dark:divide-gray-700`}>
+                            {statistics.map(
+                                ({
+                                     amber,
+                                     blue,
+                                     fuchsia,
+                                     green,
+                                     red,
+                                     sky,
+                                     slate,
+                                     storageName,
+                                     totalAmount,
+                                     storageId,
+                                 }) => {
+                                    return (
+                                        <tr
+                                            key={storageId}
+                                            className="bg-white dark:bg-primary_dark-100 border-collapse border dark:bg-gray-800/90 dark:border-gray-700"
+                                        >
+                                            <th
+                                                scope="row"
+                                                className="py-2 sm:py-4 lg:py-6 text-center text-xs sm:text-sm font-semibold text-gray-900 dark:text-gray-300 whitespace-nowrap"
+                                            >
+                                                {storageName}
+                                            </th>
+                                            <td className="px-4 text-center text-xs whitespace-nowrap sm:text-sm">{totalAmount}</td>
+                                            <td className="px-4 text-center text-xs whitespace-nowrap sm:text-sm">{red}</td>
+                                            <td className="px-4 text-center text-xs whitespace-nowrap sm:text-sm">{fuchsia}</td>
+                                            <td className="px-4 text-center text-xs whitespace-nowrap sm:text-sm">{blue}</td>
+                                            <td className="px-4 text-center text-xs whitespace-nowrap sm:text-sm">{sky}</td>
+                                            <td className="px-4 text-center text-xs whitespace-nowrap sm:text-sm">{green}</td>
+                                            <td className="px-4 text-center text-xs whitespace-nowrap sm:text-sm">{amber}</td>
+                                            <td className="px-4 text-center text-xs whitespace-nowrap sm:text-sm">{slate}</td>
+                                        </tr>
+                                    );
+                                }
+                            )}
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
             </div>
         </>
     );
-    // return (
-    //     <>
-    //         <div className="min-h-screen flex flex-row items-center justify-center py-2 px-2 sm:px-6 lg:px-8">
-    //             <div className="relative overflow-x-auto shadow-md sm:rounded-lg">
-    //                 <table
-    //                     className="w-full text-sm table-auto font-semibold max-w-screen-2xl text-left text-gray-500 dark:text-gray-400">
-    //                     <thead
-    //                         className="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
-    //                     <tr>
-    //                         <th scope="col" className="px-12 py-3">
-    //                             Storage
-    //                         </th>
-    //                         <th scope="col" className="px-6 py-3">
-    //                             Total amount
-    //                         </th>
-    //                         <th scope="col" className="px-6 py-3">
-    //                             Red
-    //                         </th>
-    //                         <th scope="col" className="px-6 py-3">
-    //                             Fuchsia
-    //                         </th>
-    //                         <th scope="col" className="px-6 py-3">
-    //                             Blue
-    //                         </th>
-    //                         <th scope="col" className="px-6 py-3">
-    //                             Sky
-    //                         </th>
-    //                         <th scope="col" className="px-6 py-3">
-    //                             Green
-    //                         </th>
-    //                         <th scope="col" className="px-6 py-3">
-    //                             Amber
-    //                         </th>
-    //                         <th scope="col" className="px-6 py-3">
-    //                             Slate
-    //                         </th>
-    //                     </tr>
-    //                     </thead>
-    //                     <tbody>
-    //                     {statistics.map(({
-    //                                          amber,
-    //                                          blue,
-    //                                          fuchsia,
-    //                                          green,
-    //                                          red,
-    //                                          sky,
-    //                                          slate,
-    //                                          storageName,
-    //                                          totalAmount,
-    //                                          storageId
-    //                                      }) => {
-    //                         return (
-    //                             <tr key={storageId}
-    //                                 className="bg-white dark:bg-primary_dark-100 border-b dark:bg-gray-800 dark:border-gray-700">
-    //                                 <th scope="row"
-    //                                     className="px-6 py-3 font-semibold text-gray-900 dark:text-gray-300 whitespace-nowrap">
-    //                                     {storageName}
-    //                                 </th>
-    //                                 <td className="px-6 py-3">
-    //                                     {totalAmount}
-    //                                 </td>
-    //                                 <td className="px-6 py-3">
-    //                                     {red}
-    //                                 </td>
-    //                                 <td className="px-6 py-3">
-    //                                     {fuchsia}
-    //                                 </td>
-    //                                 <td className="px-6 py-3">
-    //                                     {blue}
-    //                                 </td>
-    //                                 <td className="px-6 py-3">
-    //                                     {sky}
-    //                                 </td>
-    //                                 <td className="px-6 py-3">
-    //                                     {green}
-    //                                 </td>
-    //                                 <td className="px-6 py-3">
-    //                                     {amber}
-    //                                 </td>
-    //                                 <td className="px-6 py-3">
-    //                                     {slate}
-    //                                 </td>
-    //                             </tr>
-    //                         )
-    //                     })}
-    //                     </tbody>
-    //                 </table>
-    //             </div>
-    //         </div>
-    //     </>
-    // );
-})
+});
