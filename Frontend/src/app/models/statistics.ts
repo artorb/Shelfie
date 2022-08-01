@@ -1,4 +1,4 @@
-export interface IStatistic {
+export interface Statistic {
     totalAmount?: number;
     storageName?: string;
     storageId?: string;

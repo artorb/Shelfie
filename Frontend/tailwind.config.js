@@ -9,6 +9,9 @@ module.exports = {
     ],
     theme: {
         extend: {
+            fontSize: {
+                'xxs': '0.50rem',
+            },
             fontFamily: {
                 'open_sans': ['"Open Sans"'],
                 'dosis': ['"Dosis"'],
